@@ -1,4 +1,4 @@
-﻿.env
+.env
 .env.*
 .gitignore
 docker-compose.prod.yml
@@ -7,3 +7,17 @@ README.md
 .git/
 
 .DS_Store
+
+# Temporales de Python y entornos virtuales
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+build/
+dist/
+*.egg-info/

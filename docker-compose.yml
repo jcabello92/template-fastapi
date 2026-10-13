@@ -1,4 +1,4 @@
-﻿name: ${PROJECT_NAME}-fastapi
+name: ${PROJECT_NAME}-python
 
 services:
   app:
@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
       target: dev
-    container_name: ${PROJECT_NAME}-fastapi-app
+    container_name: ${PROJECT_NAME}-python-app
     restart: always
     env_file:
       - .env
@@ -14,18 +14,6 @@ services:
       - ./volume/app/src:/app
     networks:
       - template-network
-
-  caddy:
-    image: caddy:2-alpine
-    container_name: ${PROJECT_NAME}-fastapi-caddy
-    restart: always
-    volumes:
-      - ./volume/caddy/Caddyfile:/etc/caddy/Caddyfile
-      - ./volume/caddy/data:/data
-    networks:
-      - template-network
-    depends_on:
-      - app
 
 networks:
   template-network:
